@@ -8,6 +8,9 @@ if not contains "$HOME/.local/bin:$HOME/bin" $PATH
 end
 set -gx PATH "/home/bowarc/.cargo/bin" $PATH
 
+# Rust backtrace
+set -gx RUST_BACKTRACE 1
+
 # Initialize the z command
 zoxide init fish | source
 
@@ -43,6 +46,6 @@ set -U fish_greeting
 # Custom error message on bad command 
 function fish_command_not_found
     # __fish_default_command_not_found_handler $argv
-    command_not_found
+    command_not_found # Our custom function 
     # echo Fish: Unknown command: $argv
 end
