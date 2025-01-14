@@ -1,15 +1,19 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+# Add paths to $PATH if they are not yet in it
+set -l paths $HOME/.local/bin $HOME/bin $HOME/.cargo/bin
+for path in $paths
+    if contains $path $PATH
+        continue
+    end
 
-# User specific environment
-if not contains "$HOME/.local/bin:$HOME/bin" $PATH
-    set -gx PATH "$HOME/.local/bin:$HOME/bin" $PATH
+    set -agx PATH $path
+    # echo $path
 end
-set -gx PATH "/home/bowarc/.cargo/bin" $PATH
 
 # Rust backtrace
 set -gx RUST_BACKTRACE 1
+
+# Remove fish hello message 
+set -U fish_greeting
 
 # Initialize the z command
 zoxide init fish | source
@@ -18,7 +22,7 @@ zoxide init fish | source
 oh-my-posh init fish --config ~/.config/oh-my-posh/pwsh10k.omp.json | source
 
 # Flatpak aliases
-alias discord="flatpak run dev.vencord.Vesktop"
+# alias discord="flatpak run dev.vencord.Vesktop"
 alias osu="flatpak run sh.ppy.osu"
 alias easyeffects="flatpak run com.github.wwmm.easyeffects"
 alias spotube="flatpak run com.github.KRTirtho.Spotube"
@@ -39,9 +43,6 @@ function gdiff
     # Return to the previous directory
     # cd -
 end
-
-# Remove fish hello message 
-set -U fish_greeting
 
 # Custom error message on bad command 
 function fish_command_not_found
