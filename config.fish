@@ -50,3 +50,10 @@ function fish_command_not_found
     command_not_found # Our custom function 
     # echo Fish: Unknown command: $argv
 end
+
+######################
+#      Keybinds      #
+######################
+
+# Bind escape to clear the current command
+bind \e 'commandline ""'
