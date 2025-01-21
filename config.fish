@@ -14,6 +14,8 @@ for path in $paths
     # echo $path
 end
 
+set -gx EDITOR /usr/bin/hx
+
 # Rust backtrace
 set -gx RUST_BACKTRACE 1
 
