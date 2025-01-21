@@ -1,4 +1,4 @@
-function command_not_found
+function fish_command_not_found
 
     set messages {
 "Boooo!",
