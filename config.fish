@@ -3,7 +3,7 @@
 #####################################
 
 # Add paths to $PATH if they are not yet in it
-set -l paths $HOME/.local/bin $HOME/bin $HOME/.cargo/bin
+set -l paths $HOME/.local/bin $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/.npm/node_modules/bin
 
 for path in $paths
     if contains $path $PATH
@@ -16,7 +16,8 @@ end
 
 set -gx EDITOR /usr/bin/hx
 
-# Rust backtrace
+# Rust backtrace, Not sure what to use
+# set -gx RUST_BACKTRACE full
 set -gx RUST_BACKTRACE 1
 
 # Remove fish hello message 
@@ -49,10 +50,15 @@ alias spotube="flatpak run com.github.KRTirtho.Spotube"
 alias obs="flatpak run com.obsproject.Studio"
 
 #####################################
-#              Keybinds             # 
+#              Keybinds             #
 #####################################
 
 # Bind escape to clear the current command
 bind \e 'commandline ""'
 # Bind ctrl delete to remove everything past the cursor
 bind \e\[3\;5~ kill-line
+
+
+#####################################
+#              Startup              # 
+#####################################
