@@ -56,7 +56,7 @@ alias obs="flatpak run com.obsproject.Studio"
 # Bind escape to clear the current command
 bind \e 'commandline ""'
 # Bind ctrl delete to remove everything past the cursor
-bind \e\[3\;5~ kill-line
+bind \e\[3\;5~ kill-word
 
 
 #####################################
