@@ -31,14 +31,16 @@ set -gx fish_greeting
 zoxide init fish | source
 
 # Init oh my posh
-oh-my-posh init fish --config ~/.config/oh-my-posh/10k.omp.json | source
+oh-my-posh init fish --config ~/.config/oh-my-posh/10k.omp.toml | source
 
 #####################################
 #          General aliases          #
 #####################################
 
+alias cls=clear
 alias ls="eza -las type"
 alias cat="bat"
+alias clls="cls && ls"
 
 #####################################
 #          Flatpak aliases          #
@@ -57,7 +59,6 @@ alias obs="flatpak run com.obsproject.Studio"
 bind \e 'commandline ""'
 # Bind ctrl delete to remove everything past the cursor
 bind \e\[3\;5~ kill-word
-
 
 #####################################
 #              Startup              # 
