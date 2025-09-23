@@ -4,7 +4,7 @@ function gdiff
     cd $project_root
 
     # Use fzf to select files and show diffs
-    git diff --name-only | fzf --multi --ansi --preview-window right:70% --preview "git diff --color=always -- {}" --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+    git diff --name-only | fzf --multi --wrap --ansi --preview-window right:70% --preview "git diff --color=always -- {}" --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 
     # Return to the previous directory
     # cd -

@@ -41,6 +41,10 @@ alias cls=clear
 alias ls="eza -las type"
 alias cat="bat"
 alias clls="cls && ls"
+alias cd=z
+
+alias gcd="cd $(git rev-parse --show-toplevel)"
+alias lazypodman='DOCKER_HOST=unix:///run/user/1000/podman/podman.sock lazydocker'
 
 #####################################
 #          Flatpak aliases          #
