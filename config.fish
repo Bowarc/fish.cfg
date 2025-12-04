@@ -3,7 +3,7 @@
 #####################################
 
 # Add paths to $PATH if they are not yet in it
-set -l paths $HOME/.local/bin $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/.npm/node_modules/bin
+set -l paths $HOME/.local/bin $HOME/.cargo/bin
 
 for path in $paths
     if contains $path $PATH
@@ -13,6 +13,11 @@ for path in $paths
     set -agx PATH $path
     # echo $path
 end
+
+# Android dev
+set -x ANDROID_HOME ~/.android/sdk
+set -x NDK_HOME ~/.android/sdk/ndk/29.0.14206865
+set -x JAVA_HOME /usr/lib/jvm/jre
 
 set -gx EDITOR /usr/bin/hx
 
