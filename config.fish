@@ -3,7 +3,7 @@
 #####################################
 
 # Add paths to $PATH if they are not yet in it
-set -l paths $HOME/.local/bin $HOME/.cargo/bin
+set -l paths $HOME/.local/bin $HOME/.cargo/bin $HOME/.lmstudio/bin
 
 for path in $paths
     if contains $path $PATH
@@ -17,7 +17,9 @@ end
 # Android dev
 set -x ANDROID_HOME ~/.android/sdk
 set -x NDK_HOME ~/.android/sdk/ndk/29.0.14206865
-set -x JAVA_HOME /usr/lib/jvm/jre
+set -x ANDROID_NDK_HOME ~/.android/sdk/ndk/29.0.14206865
+set -x JAVA_HOME /usr/lib/jvm/java-25-openjdk
+set -gx STUDIO_JDK /usr/lib/jvm/jre-21/
 
 set -gx EDITOR /usr/bin/hx
 
@@ -71,3 +73,6 @@ bind \e\[3\;5~ kill-word
 #####################################
 #              Startup              # 
 #####################################
+
+# Added by LM Studio CLI tool (lms)
+set -gx PATH $PATH /home/bowarc/.lmstudio/bin
